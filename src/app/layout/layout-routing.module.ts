@@ -9,7 +9,7 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: "", redirectTo: "dashboard", pathMatch: "prefix",
+        path: "", redirectTo: "manage/dashboard", pathMatch: "prefix",
       },
       {
         path: "manage/dashboard",
