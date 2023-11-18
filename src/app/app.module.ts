@@ -12,7 +12,7 @@ import { PendingbooksModule } from './layout/admin/pendingbooks/pendingbooks.mod
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +22,7 @@ import { PendingbooksModule } from './layout/admin/pendingbooks/pendingbooks.mod
     RegistrationModule,
     DashboardModule,
     ApprovedbooksModule,
-    PendingbooksModule
+    PendingbooksModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

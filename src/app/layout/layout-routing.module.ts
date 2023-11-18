@@ -22,6 +22,10 @@ const routes: Routes = [
       {
         path: "manage/pendingbooks",
         loadChildren: () => import('./admin/pendingbooks/pendingbooks.module').then(mod => mod.PendingbooksModule),
+      },
+      {
+        path: "manage/writers",
+        loadChildren: () => import('../users/writers/writers/writers.module').then(mod => mod.WritersModule),
       }
     ]
   }

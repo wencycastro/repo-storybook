@@ -33,7 +33,7 @@ export class SidenavComponent implements OnInit{
       number: '1',
       name: 'Writers',
       icon: 'fa-solid fa-pen-nib',
-      routerLink: 'manage/dashboard'
+      routerLink: 'manage/writers'
     }
   ]
   constructor() { }
