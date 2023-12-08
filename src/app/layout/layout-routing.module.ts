@@ -16,6 +16,14 @@ const routes: Routes = [
         loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
       },
       {
+        path: "manage/users",
+        loadChildren: () => import('./admin/userlist/userlist.module').then(mod => mod.UserlistModule),
+      },
+      {
+        path: "manage/admin",
+        loadChildren: () => import('./admin/adminprofile/adminprofile.module').then(mod => mod.AdminprofileModule),
+      },
+      {
         path: "manage/approvedbooks",
         loadChildren: () => import('./admin/approvedbooks/approvedbooks.module').then(mod => mod.ApprovedbooksModule),
       },

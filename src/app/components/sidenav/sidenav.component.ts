@@ -12,28 +12,26 @@ export class SidenavComponent implements OnInit{
     {
       number: '1',
       name: 'Dashboard',
-      icon: 'fa-solid fa-book-open',
+      icon: 'fa-solid fa-house-user',
       routerLink: 'manage/dashboard'
     },
     {
       number: '2',
-      name: 'Books',
-      icon: 'fa-solid fa-book',
-      routerLink: 'manage/approvedbooks'
+      name: 'User List',
+      icon: 'fa-solid fa-users',
+      routerLink: 'manage/users'
     },
     {
       number: '3',
-      name: 'Pending books',
+      name: 'Approved books',
       icon: 'fa-solid fa-check',
-      routerLink: 'manage/pendingbooks'
-    }
-  ]
-  list_2 = [
+      routerLink: 'manage/approvedbooks'
+    },
     {
-      number: '1',
-      name: 'Writers',
-      icon: 'fa-solid fa-pen-nib',
-      routerLink: 'manage/dashboard'
+      number: '4',
+      name: 'Pending books',
+      icon: 'fa-solid fa-spinner',
+      routerLink: 'manage/pendingbooks'
     }
   ]
   constructor() { }

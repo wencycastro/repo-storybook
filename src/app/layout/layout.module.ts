@@ -7,6 +7,9 @@ import { SidenavComponent } from '../components/sidenav/sidenav.component';
 import { ScreenComponent } from '../components/screen/screen.component';
 import { CardComponent } from '../components/card/card.component';
 import { ComponentsModule } from '../components/component.module';
+import { UserlistComponent } from './admin/userlist/userlist.component';
+import { AdminprofileComponent } from './admin/adminprofile/adminprofile.component';
+import { UserviewComponent } from './users/userview/userview.component';
 
 
 @NgModule({
@@ -15,6 +18,7 @@ import { ComponentsModule } from '../components/component.module';
     TopnavComponent,
     SidenavComponent,
     ScreenComponent,
+    
   ],
   imports: [
     CommonModule,

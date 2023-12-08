@@ -19,12 +19,12 @@ const routes: Routes = [
     loadChildren: () => import('./layout/dashboard/dashboard.module').then(mod => mod.DashboardModule),
   },
   {
-    path: "manage/approvedbooks",
-    loadChildren: () => import('./layout/admin/approvedbooks/approvedbooks.module').then(mod => mod.ApprovedbooksModule),
+    path: "user/home",
+    loadChildren: () => import('./layout/users/userview/userview.module').then(mod => mod.UserviewModule),
   },
   {
-    path: "manage/pendingbooks",
-    loadChildren: () => import('./layout/admin/pendingbooks/pendingbooks.module').then(mod => mod.PendingbooksModule),
+    path: "writer/home",
+    loadChildren: () => import('./layout/users/userview/writerview/writerview.module').then(mod => mod.WriterviewModule),
   }
 ];
 

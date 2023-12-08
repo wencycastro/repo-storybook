@@ -9,6 +9,7 @@ import { RegistrationModule } from './auth/registration/registration.module';
 import { DashboardModule } from './layout/dashboard/dashboard.module';
 import { ApprovedbooksModule } from './layout/admin/approvedbooks/approvedbooks.module';
 import { PendingbooksModule } from './layout/admin/pendingbooks/pendingbooks.module';
+import { UserviewModule } from './layout/users/userview/userview.module';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,7 @@ import { PendingbooksModule } from './layout/admin/pendingbooks/pendingbooks.mod
     LayoutModule,
     LoginModule,
     RegistrationModule,
-    DashboardModule,
-    ApprovedbooksModule,
-    PendingbooksModule
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
