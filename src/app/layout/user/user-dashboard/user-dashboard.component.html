@@ -1,0 +1,39 @@
+<div class="search-bar">
+  <label for="search">Search:</label>
+  <input id="search" [formControl]="searchControl" placeholder="Enter keywords">
+</div>
+
+<div>
+  <label for="genreFilter">Filter by Genre:</label>
+  <select id="genreFilter" [formControl]="genreFilterControl" (change)="filterStories()">
+    <option value="all">All Genres</option>
+    <option value="fantasy">Fantasy</option>
+    <option value="mystery">Mystery</option>
+    <!-- Add more genres as needed -->
+  </select>
+</div>
+
+<div>
+  <label for="ratingsFilter">Filter by Ratings:</label>
+  <select id="ratingsFilter" [formControl]="ratingsFilterControl" (change)="filterStories()">
+    <option value="all">All Ratings</option>
+    <option value="5">5 stars</option>
+    <option value="4">4 stars</option>
+    <option value="3">3 stars</option>
+    <option value="2">2 stars</option>
+    <option value="1">1 star</option>
+  </select>
+</div>
+
+<div class="story-cards">
+  <div *ngFor="let story of stories" class="story-card">
+    <img [src]="story.imageUrl" alt="Story Image">
+    <div class="story-info">
+      <h4>{{ story.title }}</h4>
+      <p>By {{ story.author }}</p>
+      <p>Genre: {{ story.genre }}</p>
+      <p>Ratings: {{ story.ratings }}</p>
+      <button (click)="readStory(story)">Read Story</button>
+    </div>
+  </div>
+</div>

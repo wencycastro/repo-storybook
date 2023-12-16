@@ -6,7 +6,4 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent {
-  title = 'TopnavSideNav'
-  sideNavStatus: boolean = false;
-
 }

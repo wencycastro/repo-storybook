@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,6 @@ export class LoginComponent implements OnInit {
   type: string = "password"
   isText: boolean = false;
   eyeIcon: string = "fa-eye-slash";
-  constructor() { }
 
   ngOnInit(): void {
 
@@ -22,4 +23,22 @@ export class LoginComponent implements OnInit {
     this.isText ? this.type = "text" : this.type = "password";
   }
 
-}
+  userName: string = '';
+  password: string = '';
+  
+  constructor(private loginService: SharedService, private router: Router) {}
+
+  login(): void {
+    this.loginService.login(this.userName, this.password).subscribe(
+      (response) => {
+        console.log('Login Successful:', response);
+        // Redirect to the desired page after successful login
+        this.router.navigate(['/read']);
+      },
+      (error) => {
+        console.error('Login Error:', error);
+        // Handle error, e.g., show a message to the user
+      }
+    );
+  }
+  }

@@ -1,7 +1,4 @@
 <nav class="navbar navbar-dark bg-dark px-2">
-    <div class="side-nav-button p-2 me-3 text-light" (click)="SideNavToggle()">
-        <i class="fa-solid fa-bars"></i>
-    </div>
 
     <a class="navbar-brand px-4" href="#">Storybook</a>
 
@@ -10,7 +7,8 @@
             WFJ
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a href="#" class="dropdown-item" routerLink="manage/admin">Your Profile</a></li>
+            <li><a class="dropdown-item" routerLink="manage/admin">Your Profile</a></li>
+            <li><a class="dropdown-item" routerLink="/write">Write</a></li>
             <li><a class="dropdown-item" routerLink="/login">Log Out</a></li>
         </ul>
     </div>

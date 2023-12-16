@@ -1,0 +1,99 @@
+.home-container {
+  height: 100vh;
+}
+
+.container {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 15px 0;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+
+.welcome-section {
+  height: 26.2%;
+  background-color: #f4f4f4;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.featured-section {
+  height: 55%;
+  padding: 50px 0;
+}
+
+//Books
+
+.scrollable-container {
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.book-cards-container {
+  display: flex;
+  white-space: nowrap; /* Prevent wrapping to the next line */
+}
+
+.book-card {
+  flex: 0 0 calc(30% - 10px); /* Adjust the width to 30% of the container width and add some margin */
+  max-width: 270px; /* Set a maximum width for each card */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-right: 75px; /* Add right margin for spacing between cards */
+  display: inline-block; /* Display book cards in a line */
+}
+
+.book-card img {
+  width: 100%;
+  height: 160px; /* Adjust the height of the image */
+  object-fit: contain;
+}
+
+.book-info {
+  padding: 24px; /* Adjust the padding for a larger look */
+}
+
+.book-info h4 {
+  margin: 0 0 12px; /* Adjust the bottom margin for the title */
+  font-size: 20px; /* Adjust the font size for the title */
+}
+
+.book-info p {
+  margin: 0 0 12px; /* Adjust the bottom margin for the text */
+  font-size: 15px; /* Adjust the font size for the text */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis (...) for overflowed text */
+  white-space: nowrap; /* Prevent wrapping to the next line */
+}
+
+.book-info a {
+  display: inline-block;
+  padding: 10px 20px; /* Adjust the padding for a slightly smaller button */
+  font-size: 16px; /* Adjust the font size for the button */
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.book-info a:hover {
+  background-color: #555;
+}

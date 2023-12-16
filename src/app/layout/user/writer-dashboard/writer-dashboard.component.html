@@ -1,0 +1,55 @@
+<main>
+<section id="dashboard">
+    <h2>Dashboard</h2>
+
+    <!-- Story List as Cards -->
+    <div class="card">
+        <div class="card-title">Story Title 1</div>
+        <div class="card-author">Author: John Doe</div>
+        <div class="card-genre">Genre: Fantasy</div>
+        <p class="card-content">Once upon a time...</p>
+        <div class="card-actions">
+            <a href="#" class="btn">Edit</a>
+            <a href="#" class="btn">Delete</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Story Title 2</div>
+        <div class="card-author">Author: Jane Smith</div>
+        <div class="card-genre">Genre: Mystery</div>
+        <p class="card-content">In a land far, far away...</p>
+        <div class="card-actions">
+            <a href="#" class="btn">Edit</a>
+            <a href="#" class="btn">Delete</a>
+        </div>
+    </div>
+
+    <!-- Add more story cards here -->
+
+    <!-- Add Story Form -->
+    <h2>Add Story</h2>
+    <form class="add-story-form">
+        <label for="storyTitle">Title:</label>
+        <input type="text" id="storyTitle" name="storyTitle" required>
+    
+        <label for="storyAuthor">Author:</label>
+        <input type="text" id="storyAuthor" name="storyAuthor" required>
+    
+        <label for="storyGenre">Genre:</label>
+        <select id="storyGenre" name="storyGenre" required>
+            <option value="" disabled selected>Select a Genre</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="mystery">Mystery</option>
+            <option value="science_fiction">Science Fiction</option>
+            <option value="romance">Romance</option>
+            <!-- Add more genres here -->
+        </select>
+    
+        <label for="storyContent">Content:</label>
+        <textarea id="storyContent" name="storyContent" rows="4" required></textarea>
+    
+        <button type="submit" class="btn">Add Story</button>
+    </form>
+</section>
+</main>

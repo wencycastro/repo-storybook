@@ -6,14 +6,17 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { LoginModule } from './auth/login/login.module';
 import { RegistrationModule } from './auth/registration/registration.module';
-import { DashboardModule } from './layout/dashboard/dashboard.module';
-import { ApprovedbooksModule } from './layout/admin/approvedbooks/approvedbooks.module';
-import { PendingbooksModule } from './layout/admin/pendingbooks/pendingbooks.module';
-import { UserviewModule } from './layout/users/userview/userview.module';
+import { HomeModule } from './layout/home/home/home.module';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { StoryListComponent } from './components/story-list/story-list.component';
+import { StoryDetailsComponent } from './components/story-details/story-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StoryDetailsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,9 @@ import { UserviewModule } from './layout/users/userview/userview.module';
     LayoutModule,
     LoginModule,
     RegistrationModule,
-    DashboardModule
+    HomeModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
