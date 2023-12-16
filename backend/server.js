@@ -13,7 +13,8 @@ async function configureServer() {
     server.use(bodyParser.urlencoded({ extended: true }));
     server.use(bodyParser.json());
 
-    server.use('/auth', authRoutes, storyRoutes);
+    server.use('/auth', authRoutes);
+    server.use('/book', storyRoutes);
 
     server.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");

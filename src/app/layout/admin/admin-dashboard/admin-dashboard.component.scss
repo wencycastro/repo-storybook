@@ -1,0 +1,85 @@
+.admin-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  .graphical-representation {
+    margin-bottom: 20px;
+  }
+  
+  .user-crud {
+    max-width: 1700px;
+    margin: auto;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    margin-bottom: 8px;
+  }
+  
+  input {
+    padding: 8px;
+    margin-bottom: 12px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: grey;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  .user-item {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .user-item td {
+    padding: 12px;
+  }
+  
+  .user-item button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    margin-right: 4px;
+  }
+  
+  .user-item button:hover {
+    background-color: #bd2130;
+  }

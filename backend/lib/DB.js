@@ -6,7 +6,6 @@ const sequelize = new Sequelize("storybook", "root", "1234", {
 
 const User = require('../models/user')(sequelize);
 const Book = require('../models/book')(sequelize);
-const Admin = require('../models/admin')(sequelize);
 
 exports.register = async(req, res) => {
     try {
@@ -54,40 +53,37 @@ exports.login = async (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
-
-    exports.createBook = async (req, res) => {
+};
+exports.addBook = async (req, res) => {
+    const { title, author, genre, ratings} = req.body;
+  
     try {
-        const createdBook = await Book.create({ /* book data from req.body */ });
-
-        res.status(201).json({
-            message: 'Book created successfully',
-            bookId: createdBook.id,
-        });
+      const newBook = await Book.create({
+        title,
+        author,
+        genre,
+        ratings,
+      });
+  
+      // If needed, you can return the newly created book or its ID
+      return res.status(201).json(newBook); // Sending a JSON response with the newly created book
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal Server Error' });
+      // Handle errors, e.g., log them or send an error response
+      console.error('Error adding book:', error.message);
+      return res.status(500).json({ error: 'Unable to add book' }); // Adjust the status code and message as needed
     }
-};
+  };
 
-exports.addBook = async(req, res) => {
+  exports.getAllBooks = async (req, res) => {
     try {
-
-        const user = await User.findByPk( {
-            attributes: ['firstName', 'lastName', 'image'],
-        });
-
-        const newJob = await Book.create({
-            ...req.body,
-
-            coverImage: book.image,
-            title: book.title,
-            authorName: user.authorName,
-        });
-
-        res.status(201).json({ book: newBook });
+      // Fetch all books from the database
+      const allBooks = await Book.findAll();
+  
+      // Send the list of books as a JSON response
+      return res.status(200).json(allBooks);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal Server Error' });
+      // Handle errors, e.g., log them or send an error response
+      console.error('Error getting all books:', error.message);
+      return res.status(500).json({ error: 'Unable to get books' }); // Adjust the status code and message as needed
     }
-};
-};
+  };

@@ -18,6 +18,10 @@ const routes: Routes = [
       {
         path: "write",
         loadChildren: () => import('./user/writer-dashboard/writer-dashboard.module').then(mod => mod.WriterDashboardModule),
+      },
+      {
+        path: "admin",
+        loadChildren: () => import('./admin/admin-dashboard/admin-dashboard.module').then(mod => mod.AdminDashboardModule),
       }
     ]
   }

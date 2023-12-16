@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WriterDashboardComponent } from './writer-dashboard.component';
 import { WriterDashboardRoutingModule } from './writer-dashboard-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,9 @@ import { WriterDashboardRoutingModule } from './writer-dashboard-routing.module'
   ],
   imports: [
     CommonModule,
-    WriterDashboardRoutingModule
+    WriterDashboardRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class WriterDashboardModule { }

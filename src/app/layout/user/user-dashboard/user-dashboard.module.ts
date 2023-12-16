@@ -6,6 +6,7 @@ import { StoryCardModule } from 'src/app/components/story-card/story-card.module
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoryViewModule } from 'src/app/components/story-view/story-view.module';
 import { StoryListModule } from 'src/app/components/story-list/story-list.module';
+import { FooterModule } from 'src/app/components/footer/footer.module';
 
 
 

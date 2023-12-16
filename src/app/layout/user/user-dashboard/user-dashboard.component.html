@@ -1,39 +1,84 @@
-<div class="search-bar">
-  <label for="search">Search:</label>
-  <input id="search" [formControl]="searchControl" placeholder="Enter keywords">
-</div>
-
-<div>
-  <label for="genreFilter">Filter by Genre:</label>
-  <select id="genreFilter" [formControl]="genreFilterControl" (change)="filterStories()">
-    <option value="all">All Genres</option>
-    <option value="fantasy">Fantasy</option>
-    <option value="mystery">Mystery</option>
-    <!-- Add more genres as needed -->
-  </select>
-</div>
-
-<div>
-  <label for="ratingsFilter">Filter by Ratings:</label>
-  <select id="ratingsFilter" [formControl]="ratingsFilterControl" (change)="filterStories()">
-    <option value="all">All Ratings</option>
-    <option value="5">5 stars</option>
-    <option value="4">4 stars</option>
-    <option value="3">3 stars</option>
-    <option value="2">2 stars</option>
-    <option value="1">1 star</option>
-  </select>
-</div>
-
-<div class="story-cards">
-  <div *ngFor="let story of stories" class="story-card">
-    <img [src]="story.imageUrl" alt="Story Image">
-    <div class="story-info">
-      <h4>{{ story.title }}</h4>
-      <p>By {{ story.author }}</p>
-      <p>Genre: {{ story.genre }}</p>
-      <p>Ratings: {{ story.ratings }}</p>
-      <button (click)="readStory(story)">Read Story</button>
+<div class="dashboard-container">
+  <header class="navbar">
+    <div class="container">
+      <h1>Dashboard</h1>
     </div>
-  </div>
-</div>
+  </header>
+
+  <section class="search-section">
+    <div class="container">
+      <label for="searchInput">Search:</label>
+      <input type="text" id="searchInput" placeholder="Search for books...">
+      <button id="searchButton">Search</button>
+    </div>
+
+    <div class="container">
+      <label for="genreSelect">Sort by Genre:</label>
+      <select id="genreSelect">
+        <option value="all">All Genres</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="mystery">Mystery</option>
+        <!-- Add more genre options as needed -->
+      </select>
+
+      <label for="ratingSelect">Sort by Rating:</label>
+      <select id="ratingSelect">
+        <option value="all">All Ratings</option>
+        <option value="5">5 Stars</option>
+        <option value="4">4 Stars</option>
+        <!-- Add more rating options as needed -->
+      </select>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="container">
+      <h2>Featured Stories</h2>
+      <div class="scrollable-container">
+        <div class="book-cards-container">
+          <!-- Sample Book Cards -->
+          <div class="book-card">
+            <img src="assets/book-covers/book-cover1.jpg" alt="Book Cover 1">
+            <div class="book-info">
+              <h4>Featured Story 1</h4>
+              <p>By Author Name 1</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor...</p>
+              <a routerLink="/read/story1">Read More</a>
+              <!-- Rating and Comment form -->
+              <form class="rating-comment-form">
+                <label for="ratingInput">Your Rating:</label>
+                <input type="number" id="ratingInput" min="1" max="5" step="0.1" placeholder="Enter your rating">
+
+                <label for="commentInput">Leave a comment:</label>
+                <textarea id="commentInput" rows="3" placeholder="Write your comment..."></textarea>
+
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="book-card">
+            <img src="assets/book-covers/book-cover2.jpg" alt="Book Cover 2">
+            <div class="book-info">
+              <h4>Featured Story 2</h4>
+              <p>By Author Name 2</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor...</p>
+              <a routerLink="/read/story2">Read More</a>
+              <!-- Rating and Comment form -->
+              <form class="rating-comment-form">
+                <label for="ratingInput">Your Rating:</label>
+                <input type="number" id="ratingInput" min="1" max="5" step="0.1" placeholder="Enter your rating">
+
+                <label for="commentInput">Leave a comment:</label>
+                <textarea id="commentInput" rows="3" placeholder="Write your comment..."></textarea>
+
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Add more book cards as needed -->
+        </div>
+      </div>
+    </div>
+  </section>

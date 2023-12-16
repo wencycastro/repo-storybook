@@ -7,6 +7,7 @@ import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.com
 import { FooterComponent } from '../components/footer/footer.component';
 import { ScreenComponent } from '../components/screen/screen.component';
 import { WriterDashboardComponent } from './user/writer-dashboard/writer-dashboard.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({

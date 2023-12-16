@@ -1,43 +1,30 @@
 <main>
 <section id="dashboard">
-    <h2>Dashboard</h2>
+    <h2>Your Stories</h2>
 
     <!-- Story List as Cards -->
-    <div class="card">
-        <div class="card-title">Story Title 1</div>
-        <div class="card-author">Author: John Doe</div>
-        <div class="card-genre">Genre: Fantasy</div>
-        <p class="card-content">Once upon a time...</p>
+    <div class="card" *ngFor="let book of books">
+        <div class="card-title">{{ book.title }}</div>
+        <div class="card-author">{{ book.author }}</div>
+        <div class="card-genre">{{ book.genre }}</div>
+        <p class="card-content">{{ book.content}}</p>
         <div class="card-actions">
             <a href="#" class="btn">Edit</a>
             <a href="#" class="btn">Delete</a>
         </div>
     </div>
-
-    <div class="card">
-        <div class="card-title">Story Title 2</div>
-        <div class="card-author">Author: Jane Smith</div>
-        <div class="card-genre">Genre: Mystery</div>
-        <p class="card-content">In a land far, far away...</p>
-        <div class="card-actions">
-            <a href="#" class="btn">Edit</a>
-            <a href="#" class="btn">Delete</a>
-        </div>
-    </div>
-
-    <!-- Add more story cards here -->
 
     <!-- Add Story Form -->
     <h2>Add Story</h2>
     <form class="add-story-form">
         <label for="storyTitle">Title:</label>
-        <input type="text" id="storyTitle" name="storyTitle" required>
+        <input type="text" name="title" id="title" [(ngModel)]="bookData.title">
     
         <label for="storyAuthor">Author:</label>
-        <input type="text" id="storyAuthor" name="storyAuthor" required>
+        <input type="text" name="author" id="author" [(ngModel)]="bookData.author">
     
         <label for="storyGenre">Genre:</label>
-        <select id="storyGenre" name="storyGenre" required>
+        <select id="genre" name="genre" [(ngModel)]="bookData.genre">
             <option value="" disabled selected>Select a Genre</option>
             <option value="fantasy">Fantasy</option>
             <option value="mystery">Mystery</option>
@@ -49,7 +36,7 @@
         <label for="storyContent">Content:</label>
         <textarea id="storyContent" name="storyContent" rows="4" required></textarea>
     
-        <button type="submit" class="btn">Add Story</button>
+        <button type="submit" class="btn" (click)="addBook()">Add Story</button>
     </form>
 </section>
 </main>

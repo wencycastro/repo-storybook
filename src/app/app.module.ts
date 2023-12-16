@@ -10,12 +10,10 @@ import { HomeModule } from './layout/home/home/home.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StoryListComponent } from './components/story-list/story-list.component';
-import { StoryDetailsComponent } from './components/story-details/story-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StoryDetailsComponent,
     
   ],
   imports: [
