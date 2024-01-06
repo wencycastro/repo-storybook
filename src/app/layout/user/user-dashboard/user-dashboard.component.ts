@@ -14,7 +14,31 @@ import { of } from 'rxjs';
   styleUrls: ['./user-dashboard.component.scss']
 })
 export class UserDashboardComponent implements OnInit {
+  
+  books: any[] = [];
 
-  ngOnInit(): void {
+  bookData = {
+    title: '',
+    author: '',
+    genre: '',
+    ratings: null,
+    content: '',
+  };
+
+  constructor(private bookService: SharedService) { }
+
+  ngOnInit() {
+    this.getBooks();
+  }
+
+  getBooks() {
+    this.bookService.getAllBooks().subscribe(
+      (allBooks) => {
+        this.books = allBooks;
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
   }
 }

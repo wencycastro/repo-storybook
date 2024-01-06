@@ -6,7 +6,7 @@ import { SharedService } from 'src/app/services/shared.service';
   templateUrl: './writer-dashboard.component.html',
   styleUrls: ['./writer-dashboard.component.scss']
 })
-export class WriterDashboardComponent implements OnInit{
+export class WriterDashboardComponent implements OnInit {
 
   books: any[] = [];
 
@@ -15,10 +15,10 @@ export class WriterDashboardComponent implements OnInit{
     author: '',
     genre: '',
     ratings: null,
-    coverImage: '',
+    content: '',
   };
 
-  constructor(private bookService: SharedService) {}
+  constructor(private bookService: SharedService) { }
 
   ngOnInit() {
     this.getBooks();
@@ -34,7 +34,7 @@ export class WriterDashboardComponent implements OnInit{
       }
     );
 
-    
+
   }
 
   getBooks() {
@@ -46,5 +46,17 @@ export class WriterDashboardComponent implements OnInit{
         console.error('Error:', error);
       }
     );
-}
+  }
+  removeBook(BookId: string) {
+    this.bookService.removeBook(BookId).subscribe(
+      (response) => {
+        console.log('Book removed successfully:', response);
+        // Handle success as needed
+      },
+      (error) => {
+        console.error('Error removing book:', error);
+        // Handle error as needed
+      }
+    );
+  }
 }

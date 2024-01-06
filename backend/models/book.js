@@ -6,6 +6,7 @@ module.exports = (sequelize) => {
         author: { type: DataTypes.STRING, allowNull: true },
         genre: { type: DataTypes.STRING, allowNull: true },
         ratings: { type: DataTypes.INTEGER, allowNull: true },
+        content: { type: DataTypes.TEXT, allowNull: true },
     });
 
     return Book;

@@ -55,7 +55,7 @@ exports.login = async (req, res) => {
     }
 };
 exports.addBook = async (req, res) => {
-    const { title, author, genre, ratings} = req.body;
+    const { title, author, genre, ratings, content} = req.body;
   
     try {
       const newBook = await Book.create({
@@ -63,6 +63,7 @@ exports.addBook = async (req, res) => {
         author,
         genre,
         ratings,
+        content,
       });
   
       // If needed, you can return the newly created book or its ID
@@ -87,3 +88,75 @@ exports.addBook = async (req, res) => {
       return res.status(500).json({ error: 'Unable to get books' }); // Adjust the status code and message as needed
     }
   };
+
+  exports.getAllUsers = async (req, res) => {
+    try {
+        const users = await User.findAll();
+
+        res.status(200).json({
+            users,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+exports.getTotalCounts = async (req, res) => {
+    try {
+        const totalUsers = await User.count();
+        const totalBooks = await Book.count();
+
+        res.status(200).json({
+            totalUsers,
+            totalBooks,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+exports.removeUser = async (req, res) => {
+    const userId = req.params.id; 
+
+    try {
+        const user = await User.findByPk(userId);
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        await user.destroy();
+
+        res.status(200).json({
+            message: 'User removed successfully',
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+exports.removeBook = async (req, res) => {
+    const bookId = req.params.id;
+
+    try {
+        // Find the book by ID and remove it
+        const removedBook = await Book.findByPk(bookId);
+
+        if (!removedBook) {
+            return res.status(404).json({ error: 'Book not found' });
+        }
+
+        // Remove the book
+        await removedBook.destroy();
+
+        // If needed, you can return the removed book or a success message
+        return res.status(200).json({ message: 'Book successfully removed' });
+    } catch (error) {
+        // Handle errors, e.g., log them or send an error response
+        console.error('Error removing book:', error.message);
+        return res.status(500).json({ error: 'Unable to remove book' });
+    }
+};

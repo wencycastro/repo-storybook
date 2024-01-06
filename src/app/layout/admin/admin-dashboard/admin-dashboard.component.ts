@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/services/shared.service';
 
 interface User {
   id: number;
@@ -11,11 +12,13 @@ interface User {
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss']
 })
-export class AdminDashboardComponent {
-  users: User[] = [
-    { id: 1, fullName: 'John Doe', email: 'john@example.com' },
-    { id: 2, fullName: 'Jane Smith', email: 'jane@example.com' }
-  ];
+export class AdminDashboardComponent implements OnInit {
+
+  totalUsers: number = 0;
+  totalBooks: number = 0; 
+
+  constructor(private userService: SharedService) {}
+
 
   selectedUserId: number | null = null;
   fullName: string = '';
@@ -63,6 +66,41 @@ export class AdminDashboardComponent {
     this.email = '';
     this.editedFullName = '';
     this.editedEmail = '';
+  }
+  
+  users: any[] = [];
+ ngOnInit(): void {
+    this.userService.getAllUsers().subscribe(
+      (response) => {
+        this.users = response.users;
+      },
+      (error) => {
+        console.error('Error fetching users', error);
+      }
+    );
+
+    this.userService.getTotalCounts().subscribe(
+      (response) => {
+        this.totalUsers = response.totalUsers;
+        this.totalBooks = response.totalBooks; // Update the property with the total books count
+      },
+      (error) => {
+        console.error('Error fetching total counts', error);
+      }
+    );
+  }
+
+  removeUser(userId: string): void {
+    this.userService.removeUser(userId).subscribe(
+      () => {
+        console.log('User removed successfully');
+        // Refresh the user list or update as needed
+        this.ngOnInit();
+      },
+      (error) => {
+        console.error('Error removing user', error);
+      }
+    );
   }
   
 }

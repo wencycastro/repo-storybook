@@ -7,10 +7,9 @@
         <div class="card-title">{{ book.title }}</div>
         <div class="card-author">{{ book.author }}</div>
         <div class="card-genre">{{ book.genre }}</div>
-        <p class="card-content">{{ book.content}}</p>
         <div class="card-actions">
             <a href="#" class="btn">Edit</a>
-            <a href="#" class="btn">Delete</a>
+            <a class="btn" (click)="removeBook(book.id)">Delete</a>
         </div>
     </div>
 
@@ -34,7 +33,7 @@
         </select>
     
         <label for="storyContent">Content:</label>
-        <textarea id="storyContent" name="storyContent" rows="4" required></textarea>
+        <textarea [(ngModel)]="bookData.content" id="storyContent" name="storyContent" rows="4" required></textarea>
     
         <button type="submit" class="btn" (click)="addBook()">Add Story</button>
     </form>

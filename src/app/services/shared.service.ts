@@ -35,5 +35,21 @@ export class SharedService {
       })
     );
   }
+
+  getAllUsers(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/auth/users`);
+  }
+
+  getTotalCounts(): Observable<{ totalUsers: number, totalBooks: number }> {
+    return this.http.get<{ totalUsers: number, totalBooks: number }>(`${this.apiUrl}/auth/counts`);
+  }
+
+  removeUser(userId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/auth/remove/${userId}`);
+  }
+
+  removeBook(BookId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/book/removeBook/${BookId}`);
+  }
 }
 
